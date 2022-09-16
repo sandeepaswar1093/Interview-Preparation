@@ -1,0 +1,305 @@
+Spring Web MVC Module
+---------------------------------------------------------------------------------
+
+-> Spring Web MVC is one of the module in Spring Framework
+
+-> By Using Spring Web MVC Module we can build 2 types of applications
+
+		1) Web applications
+		2) Distributed Applications
+
+-> Web applications are meant for Customer to Business Communication (C2B)
+
+	Ex: gmail, facebook, irctc, makemytrip etc..
+
+-> Distributed applications are meant for Business to Business Communication (B2B)
+
+	Ex :	Passport app <-----------> AADHAR app
+
+		flipkart <-------------> Internet Bank apps
+
+-> Spring Web MVC Module is developed based on 2 design patterns
+
+		1) MVC Design Pattern
+		2) Front Controller Design Pattern
+
+-> MVC desgin pattern is used to achieve loosely coupling among components
+
+		M ---> Model  (It represents data)
+		V ---> View   (It represents presentation logic)
+		C ---> Controller (It contains request handling logic)
+
+-> FrontController Design Pattern is used to perform Pre-Processing and Post-Processing of every request.
+
+-> In Spring Web MVC, DispatcherServlet will act as Front Controller. It is responsible to perform pre-processing and post-processing of a request.
+
+----------------------------------------------------------------------------------
+Spring Web MVC Architecture
+----------------------------------------------------------------------------------
+1) DispatcherServlet
+2) HandlerMapper
+3) Controller
+4) ModelAndView
+5) ViewResolver
+6) View
+----------------------------------------------------------------------------------
+-> DispatcherServlet is a predefined servlet class available in Spring MVC module. It acts as Front Controller and it is responsible for pre-processing and post-processing of a request.
+
+-> HandlerMapper is responsible to identify which request should be processed by which controller.
+
+-> Controller is called as Request Handler and it is responsible to handle the request.
+
+-> After request processing got completed, Controller method will return ModelAndView object.
+
+		Model -> Represents data in key-value format(It contains data)
+
+		View -> Logical File Name (jsp/html etc)
+
+Note: In Spring Web MVC, Controllers don't know which presentation technology is used in the project.	
+
+-> ViewResolver is used to identify view files available in our application
+
+		prefix + viewname + suffix
+
+-> View Component is used to render model data on the view file
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+Building First Web Application Using Spring Boot
+---------------------------------------------------------------------------------
+1) Create Spring Starter Project with below dependencies
+
+	i) spring-boot-starter-web
+	ii) tomcat-embed-jasper  (take this from mvn repo)
+
+2) Configure below properties in application.properties file
+
+	i) server port
+	ii) View Resolver
+
+3) Create Controller class using @Controller annotation
+
+4) Write the methods in controller and bind them to HTTP Request
+
+5) Create View Files (Presentation files)
+
+6) Start the application and test it
+
+----------------------------------------------------------------------------------
+Note: When we add spring-boot-starter-web dependency then it will give Apache Tomcat as default Embedded server.
+---------------------------------------------------------------------------------
+
+
+
+
+
+
+
+Annotatioons in SpringMVC:
+
+@Controller : 
+===========
+To represent java class as request handler in web mvc applications. This is used in C 2 B applications.
+
+@Controller will return respnce in the form of model and view. 
+               
+                Model -> Represents data in key-value format
+                View -> Logical File Name (jsp/html etc)
+
+To represent our class as Controller we are using @Controller annotation
+
+@Controller Annotation will represent our java class as spring bean.
+
+In web application Controller is mandatory to handle the request
+
+@RestController:
+===============
+@RestController Annotations in spring  is nothing but combination of @Controller and @ResponseBody Annotation.It was added in spring 4.0 to 
+make the development of RestFul Services in spring framework easier.
+
+@RestController will return response in the form of xml,json,text,Html.
+
+@RestController Annotation is used to represent java class as distributed component.This is used in B 2 B applications.
+
+@RestController Annotation will represent our java class as spring bean.
+
+Inside restController class we will write method to handle requests.
+
+
+
+
+----------------------------------------------------------------------------------------------
+-> To bind controller methods to Http Request methods we will use below annotations
+
+		GET Request ------> @GetMapping
+
+		POST Request -----> @PostMapping
+
+		PUT Request ------> @PutMapping
+
+		DELETE Request ----> @DeleteMapping
+---------------------------------------------------------------------------------
+
+@GetMapping:When our rest controller method is responsible to send information to client then that method will be binded to 
+HTTP get Request using @GetMapping annotation.
+
+
+@PostMapping:If Rest api method is responsible to create new record at server side then we will bind that method to http
+ post request method.To bind Rest Controller  method to http Post request we will use @Post mapping Annotation.
+
+
+@PutMapping:If our Rest Api Method is responsible to update existing record then we will bind our RestController
+ method to http put request method .To bind our RestController  method to http put request method we will use @PutMapping Annotation.
+
+
+@DeleteMapping: If our Rest Api Method is responsible to delete  record then we will bind our RestController
+ method to http Delete request method .To bind our RestController method to http delete request method we will use @DeleteMapping Annotation.
+
+
+@RequestBody: @RequestBody annotation is used to indicating a method parameter should be bind to the body of the HTTP request.
+ Internally, this annotation uses HTTP Message converters to convert the body of HTTP requests to java objects.
+
+
+
+
+
+
+
+
+
+
+
+
+-> In web applications we will perform below 2 operations
+
+		1) Sending data from controller to UI
+
+		2) Taking data from UI to Controller
+
+----------------------------------------------------------------------------------
+Sending Data From Controller to UI
+---------------------------------------------------------------------------------
+-> To send data from Controller to UI we will use Model/ModelAndView object
+
+-> Model is a Map which represents data in the form of Key-value pair
+
+	model.addAttribute(String key, Object value)
+
+-> We can get the value using Key
+	
+
+
+
+2) Taking data from UI to Controller:
+====================================
+
+> To recieve data from UI to controller we have below options
+
+		1) Query Parameters
+
+		2) Path Parameters
+
+		3) Request Body
+
+Query Parameters
+==================
+-> Query Parameter will re-present data in URL in the form of Key-value pair
+
+	Ex : localhost:9090/course?name=SBMS
+
+-> Query parameters will start with ? symbol
+
+-> Query Parameters will be seperated by & symbol
+
+Ex : localhost:9090/course?name=SBMS&trainerName=Santosh
+
+-> Query Paramers will present only at end of the URL
+
+-> Query Parameters are used to send data from UI to server in URL
+
+-> To read Query Parameter value we will use @RequestParam annotation
+
+Path Parameters
+===============
+-> Path Parameters will represent data in URL directley without key
+	
+	Ex: localhost:9090/course/{name}/details
+
+-> Path Parameters can present any where in the URL
+
+-> Path Parameter will start with / symbol and will be seperated by / symbol only
+
+Ex: localhost:9090/course/{name}/details/{trainerName}
+
+-> To read Path Parameter values we will use @PathVariable annotation in controller
+
+----------------------------------------------------------------------------------
+
+
+
+Query Parameters & Path Parameters
+------------------------------------------------------------------------
+-> Query Parameters & Path Parameters are used to send data to server in URL
+
+-> Query Parameters will represent data in Key-Value format
+
+-> Path Parameters will represent data directley
+
+-> Query Parameters should present only at the end of the URL
+
+-> Path Parameters can present anywhere in the URL
+
+-> Query Parameters will be seperated by '&' symbol
+
+-> Path Parameters will be seperated by '/'
+
+-> To read Query Parameters from the URL we will use @RequestParam annotation
+
+-> To read Path Parameters from the URL we will use @PathVariable annotation
+
+> To work with Query parameters we will use @RequestParam annotation
+
+-> To work with Path Parameters we will use @PathVariable annotation
+---------------------------------------------------------------------------------
+-> Query Parameters & Path Parameters will display data in URL.
+
+-> Query Parameters & Path Parameters are only recommended to send Small and non-sensitive text data.
+--------------------------------------------------------------------------------
+-> If we want to send huge & sensitive data then we should go for Request body.
+
+-> HTTP POST, PUT and DELETE requests contains request body where as GET request doesn't have request body.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

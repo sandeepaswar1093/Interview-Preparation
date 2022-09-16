@@ -1,0 +1,52 @@
+==================================================================== Querfon ==========================================================================
+
+1) What is angular?
+
+2) Why angular came? What is subscribe?
+
+3) What is difference between observe and observable?
+
+4) How to call service?
+
+5) How to call parent to child in angular
+
+6) What work will be done in one project in angular
+
+7) What is observable?
+
+8) How to convert JSON to Java?
+
+9) What are the different features of angular 4
+
+10)What is hooks lifecycle
+
+11)What is component?
+
+12)What is flow of component program in angular
+
+13)Explain project architecture and explain what task perform on project?
+
+14)What is the size of long and double can we convert long into double, if we can convert then do we need to type cast
+
+15)Differentiate between ArrayList and LinkedList
+
+16)What are the differences in between @Controller and restcontroller
+
+17)What are the differences between soap and rest webservice
+
+18)How to create proxy object of hibernate?
+
+19)What is the difference between get and load method. Without hiting the database how to get data from database
+
+20)What is advantages of Hibernate? Why does the hibernate came?
+
+21)What is IOC?
+
+22)What is the difference between Spring mvc and spring boot?
+
+23)If in list there is 5,3,7,2,9,x.....50 then what is the value of x and how to find it?
+
+24)How to get map element given in the map
+
+25)Explain internal structure of Map
+

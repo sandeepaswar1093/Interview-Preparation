@@ -1,0 +1,37 @@
+============================================================ Spring question ============================================================================
+
+1) What is spring? What are the different advantages of spring
+
+2) What is IOC? Explain Dependency Injection
+
+3) What is spring mvc? Explain it's advantages and features
+
+4) Explain the flow of spring mvc
+
+5) Differentiate between bean factory and application context
+
+6) What is loose coupling?
+
+7) What is autowiring?
+
+8) Write a program for collection type dependency injection
+
+9) How to import one xml file into another xml file
+
+10)What are the different ways of creating autowire class
+
+11)What is dependency injection? Explain setter based and constructor based injection
+
+12)What is the difference between basicdatasource and drivermanager datasource
+
+13)How to take input from user in IOC?
+
+14)In how many ways we can handle exception in spring
+
+15)What is spring boot? Explain spring boot scope
+
+16)Inner bean and outer bean scope
+
+17)What is the use of @inject annotation is there any replacement
+
+18)What is the use of @qualifier annotation?

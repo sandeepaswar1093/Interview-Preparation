@@ -1,0 +1,35 @@
+=================================================================== Capgemini ====================================================================
+
+1) Explain what is oops concept?
+
+2) Explain how does the constructor work
+
+3) Can we access properties of parent and why?
+
+4) what are the differences in between throw and throws?
+
+5) What is design pattern? Explain
+
+6) What is singleton class? Write down it's one example
+
+7) Differentiate between arraylist and linked list?
+
+8) What is comparator and comparable? Write down one suitable example for both
+
+9) What are the difference between put and post?
+
+10)What are the different advantages of spring boot?
+
+11)What is IOC?
+
+12)Explain what is dependency injection?
+
+13)What is bean? Differentiate both setter based and constructor based?
+
+14)What is difference between load and get method?
+
+15)What is hashcode? How does hashcode and equals method do work
+
+16)Explain internal working of hashmap
+
+17)What is cache? Explain cache mechanism

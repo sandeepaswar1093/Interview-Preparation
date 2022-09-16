@@ -1,0 +1,193 @@
+Mphasis questions 
+
+
+1)Solid oops features 
+And normal oops features?
+
+2)
+What is designed pattern 
+
+Write program to create singleton object?
+3)
+
+Write a program create immutable class?
+4)
+
+
+Synchronisation in thread and difference between normal and synchronised threads? 
+4)
+
+
+Why string is immutable?
+
+
+
+
+5)Difference between stringbuffer and string builders 
+6)
+
+
+What is reflection API
+
+
+7)Why field injection not recommend 
+8)
+
+
+Types of dependency injection and what is requirements of ioc to work 
+
+
+Stereotypes annotations?
+
+9)
+
+
+Why hibernate come into picture?
+
+
+
+10)How to insert data using hibernate orm hql query and coding step orally 
+
+11)
+
+What is serialisation and how to implementation with  methods 
+12)
+
+
+What is transient and final ?
+
+
+13)What is deserialisation And methods 
+14)
+
+
+How to do customisation using externalisation how many method present 
+
+
+15)Marker interface
+
+
+
+16)What difference spring and spring boot 
+
+17)
+What jpa repository and @repository 
+18)
+
+What is web services need ?
+
+
+19)What is functional interface why it is used?
+
+1.) What are annotations in Spring Boot.	
+
+2.) Difference Between Rest Controller and @Controller in Java	
+
+3.) What are Java 8 Features	
+
+4.) Micro Services	
+   
+a) What are Micro Services Design Patterns	
+    
+b) Communications Between Services,ASNC calls in Microservices	
+	
+
+1.) Difference between Array List & Linked List?	
+
+2.) How the exceptions are handled in Java? OR Explain exception handling mechanism in Java?	
+
+3.) What is the difference between error and exception in Java?	
+
+4.) what are checked and unchecked exceptions in java?	
+
+5.) What are the advantages of Spring Boot?	
+
+6.) Why We are using Micro Services?	
+
+7.) What are advantages of Micro Services?	
+
+
+1.) What are the advantages of using Spring Boot?	
+
+2.) What are the Spring Boot key components? 	
+
+3.) Why Spring Boot over Spring? 	
+
+4.) How does Spring Boot works? 	
+
+5.) Spring Boot Implementation Process?	
+
+5.) What are the types of API testing?	
+
+6.) What are the protocols used in API Testing?	
+
+7.) What are the tools used for API Testing?	
+	
+
+1.) What are annotations in java spring boot?	
+
+2.) Why Spring Boot over Spring?	
+
+3.) How does Spring Boot works?	
+
+4.) functional interface in java	
+
+5.) transaction management in spring boot javatpoint	
+
+6.) difference between orm and jdbc	
+	
+                  
+      Java Spring Boot Interview Topics	
+
+1.)Find the largest palindrome among the list aba, madam, hihihih? (Program)	
+
+2.)Can you tell me what a static block?	
+
+3.)The static block is loaded before the class loads or it is after the class loads?	
+
+4.)Difference between this and super key word?	
+
+5.)What is the difference between method overloading and method overriding?
+6.)Can you explain me about abstract class?	
+
+7.)Can you tell me what the advantages of handling the exceptions are?	
+
+8.)What are all the key words used in exception handling?	
+
+9.)Difference between final finally and finalize in java?	
+
+10.)Can you explain me about what is constructor overloading?	
+
+11.)  Can you give me the features of the Java 8?	
+
+12.) Tell me about lambda expressions?	
+
+13.) Can you explain what does Stream API is?	
+
+14.) Create a class person class with age, name & ID then add items to that person and then using stream find out the all the id’s whose age is greater than 45? (Program)	
+
+15.) What is the optional class?	
+
+16.) What happen when a spring boot application is loaded?	
+
+17.) What is spring actuator does?	
+
+18.) Can you give me the structure of the spring boot?	
+
+19.) Difference between spring security and spring boot security?	
+
+20.) Difference between Component and @Component?	
+
+21.) What about the deployment of spring boot application?	
+
+22.) Are you aware of the Docker & Jenkins?	
+
+23.) Normal and Functional Interface	
+
+24.) Optional Class	
+
+25) Difference between Map & Flat Map
+
+26) What are collections & Streams
+
+27)Excess Modifier

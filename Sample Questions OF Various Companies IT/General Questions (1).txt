@@ -1,0 +1,72 @@
+
+1) How to handle session in project?
+
+2) How to handle exception in spring and spring security?
+
+3) What are the annotations of spring mvc?
+
+4) Spring boot vs spring mvc what are the differences in between them
+
+5) Why springboot? give some possible reasons.
+
+6) What are the annotations that being used in spring boot?
+
+7) How we can make singleton pattern synchronized
+
+8) What are the advantages of hibernate over jdbc?
+					or
+   What are the advantages of hibernate do expalin?
+
+9) What is cache? Explain the purpose of cache memory
+
+10)What are the differences between get() and load()
+
+11)Write a code to configure database in hibernate
+
+12)What is transaction?
+
+13)What is composite key in hibernate?
+
+14)Differntiate between inner join and left join
+
+15)Write a query to findout second highest salary of an employee
+
+16)What is soap and rest? Differentitate in between them
+
+17)How we can get data by using rest with suitable example
+
+18)What is dynamic polymorphism?
+
+19)Write a code to iterate map
+
+20)What is spring mvc and boot? How to call method in mvc and what is the need of calling method in mvc without using mvc
+
+21)Describe spring security, spring exception and web services.
+
+22)Explain string scenario
+
+22)Memory of string
+
+23)Explain difference between StringBuffer and StringBuilder
+
+24)How will string do mutable
+
+25)Write a program to unduplicate characters
+
+26)What is Dependency Injection & IOC
+
+27)Bean scope, @qualifier, autowire
+
+28)What is the difference between spring mvc and boot
+
+29)What is spring boot
+
+30)Explain flow of mvc.
+
+31)What is Hibernate? Explain.
+
+32)Explain inheritance in hibernate
+
+33)Write a program to reverse a string
+
+34)abc41dcd87 find the largest value among the given

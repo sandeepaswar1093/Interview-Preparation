@@ -1,0 +1,22 @@
+=========================================================== Yash Technologies =================================================================
+
+1) What is overloading? What are the different scenarios of overloading?
+
+2) When multiple static block is given then which block will be executed first if above is given main method and below is the main method
+	then which method will be executed first
+
+3) What is mvc? Explain mvc flow
+
+4) What is spring boot? Explain it's different advantages
+
+5) What is static?
+
+6) What is design pattern? Explain singleton design pattern
+
+7) When we make constructor as private then what will be the effect of private constructor
+
+8) When constructor is autotype then what will happen
+
+9) What will be the effect when constructor maked as protected
+
+10)Differentiate between Sprin mvc and spring boot

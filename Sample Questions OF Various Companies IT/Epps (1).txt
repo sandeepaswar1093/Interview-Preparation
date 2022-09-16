@@ -1,0 +1,54 @@
+======================================================== EPPS ==============================================================
+
+1) What is inheritance?
+
+2) What is abstraction?
+
+3) What is overloading and overriding?
+
+4) What are the different scenarios considering polymorphism?
+
+5) What is the difference between abstraction and interface?
+
+6) What is static? what are the uses of static
+
+7) Explain different scenarios considering exception
+
+8) What are the different features of java 7 and java 8
+
+9) How does string memory being allocated
+
+10)What is SCP and explain its different scenarios
+
+11)What are the differences between .equals and == operator
+
+12)Differentiate between == and === operator
+
+13)What is serialization?
+
+14)What is reflection in java
+
+15)What is Map? Explain
+
+16)Explain how hashmap internally works
+
+17)Scenario on map explain its object type scenario
+
+18)What is IOC?
+
+19)What is bean? Explain scope of bean
+
+20)What is the use of @qualifier annotation
+
+	try
+	{
+
+	}
+	catch(Exception e)
+	{
+
+	}
+	catch(ArithmeticException ae)
+	{
+	
+	}

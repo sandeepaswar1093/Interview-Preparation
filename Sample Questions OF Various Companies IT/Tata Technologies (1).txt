@@ -1,0 +1,18 @@
+
+================================================ Tata Technologies =========================================================
+
+1) Explain your project
+
+2) Only explain on which technologies you have used in the second project
+
+3) What is MVC Flow?
+
+4) what are the differences between singleton & mvc
+
+5) What is singleton?
+
+6) What is inner join? outer join?
+
+7) Write a query to copy one table data into another table
+
+8) Writer a query to copy only column from one table to another

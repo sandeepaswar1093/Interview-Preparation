@@ -1,0 +1,148 @@
+----------------------------------------------------------------------------------------------
+Predefined Functional interfaces introduced in java-8
+-----------------------------------------------------------------------------------------------
+-> Several functional interfaces got introduced in java-8, they are
+
+1) Predicate
+2) Supplier
+3) Consumer
+4) Function
+-> The above functional interfaces are provided in java.util.function package.
+
+Predicate
+=========
+-> Predicate is used for checking condition and returns true or false value.
+
+-> Predicate is having test ( ) method which is used to invoke lambda expression.
+
+-> Predicate is a predefined functional interface.
+
+-> Predicate is having an abstract method called test().
+
+-> We have below methods in Predicate
+
+	test ( ) ----> It is abstract method
+	negate() ---> To reverse condition.
+	and() ---> if all predicates statisfield returns true.
+	or() ---> if any one predicate satisfied returns true.
+ 
+nagate(),and(),or these are default methods.
+
+-> If we have a lambda which checks condition and returns true or false then we can invoke 
+that lamdba using Predicate functional interface like below
+
+	//Checking given number is even number or not
+	Predicate<Integer> predicate = (i) -> i%2 == 0 ;
+	boolean isEventNum  = predicate.test(10);
+
+Example 1:
+
+
+package predicateFI;
+
+import java.util.function.Predicate;
+
+public class PredicateDemo {
+
+	
+	public boolean greterOrNot(int number) {
+		if(number >20) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	public static void main(String[] args) {
+
+		PredicateDemo predicateDemo=new PredicateDemo();
+      boolean greterOrNot = predicateDemo.greterOrNot(44);
+	 if(greterOrNot) {
+		 System.out.println("greater no");
+	 }else {
+		 System.out.println("no greater");
+	 }
+	}
+}
+
+
+
+Example 2:
+
+
+package predicateFI;
+
+import java.util.function.Predicate;
+
+public class PredicateDemo {
+
+	public static void main(String[] args) {
+
+		Predicate<Integer> predicate = (number) -> number > 20;
+		boolean test = predicate.test(33);
+		if(test) {
+			System.out.println("Greater no");
+		}else {
+			System.out.println("No no greater");
+		}
+	}
+
+}
+
+
+
+
+
+Example 3:
+
+
+
+package predicateFI;
+
+public class OddEven {
+
+	public boolean oddEven(int number) {
+		
+		if(number % 2 == 0) {
+			return true;
+		}else {
+		return false;
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		
+		OddEven oddEven=new OddEven();
+		boolean oddEven2 = oddEven.oddEven(10);
+		if(oddEven2) {
+			System.out.println("Even no");
+		}else {
+			System.out.println("Odd no");
+		}
+	}
+	
+	
+}
+
+
+Example 4:
+
+
+package predicateFI;
+
+import java.util.function.Predicate;
+
+public class PredicateDemo {
+
+	public static void main(String[] args) {
+
+		Predicate<Integer> predicate = (number) -> number > 20;
+		boolean test = predicate.test(33);
+		if(test) {
+			System.out.println("Greater no");
+		}else {
+			System.out.println("No no greater");
+		}
+	}
+
+}

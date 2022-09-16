@@ -1,0 +1,929 @@
+Spring Data JPA :
+
+Spring Data JPA Introduction
+-----------------------------------------------------------------------
+-> Spring Data JPA came into market to simplify CRUD operations in applications.
+
+		C - create
+		R - Retrieve
+		U - Update 
+		D - Delete
+
+-> Performing CRUD operation is very common requirement in applications.
+
+-> Spring Data JPA provided Repositories to simplify CRUD operations
+
+	1) CrudRepository
+	2) JpaRepository
+
+-> CrudRepository provided methods to perform only Crud Operations
+
+-> JpaRepository provided methods to perform Crud Operations + Pagination + Sorting.
+
+
+
+
+------------------------------------------------------------------------
+1) What is Persistence Layer?
+Ans) Persistence layer contains components which are responsible to communicate with database.
+
+
+------------------------------------------------------------------------
+Best Practises To Follow In Persistence Layer
+------------------------------------------------------------------------
+1) For Every table we shuld have a seperate DAO
+
+		USER_MASTER -----------> UserMasterDao.java
+
+		ROLE_MASTER -----------> RoleMasterDao.java
+
+		User_ROLES ------------> UserRolesDao.java
+
+		DC_CASES --------------> DcCasesDao.java
+
+2) For every table we shold maintain atleast one Primary key.
+
+	Primary key = Not Null + unique.
+
+
+3) In every table we shoud maintain below 4 columns for data analysis.
+
+		CREATED_DATE
+		UPDATED_DATE
+		CREATED_BY
+		UPDATED_BY
+
+4) We should not ask end user to enter value for Primary Key Column because they may enter duplicate value.
+
+5) We will use Generators to generate the value for Primary key.
+
+6) We should not use physical connections to communicate with database.
+
+7) We should maintain connection pooling for db connections.
+
+8) We should manage transactions in our applications.
+
+9) We should maintain cache for static tables data.
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------
+What is ORM?
+------------------------------------------------------------------------
+-> ORM stands for Object Relational Mapping
+
+-> This ORM is very famous technique which is used to develop persistence layer.
+
+-> Below are the main components in ORM
+
+		1) Entity
+		2) Mapping
+		3) Configuration
+
+-> The java class which is mapped with data base table is called as Entity.
+
+-> To map java class with db table we will use annotations
+
+		@Entity:To represent java class as Entity class.
+		@Table : Mapping class name with table name.
+		@Id  : To reprensent variable as primary key column.
+		@Column :To map variable name with table column name.
+
+-> DataSource details we will configure in application.properties or application.yml file.
+------------------------------------------------------------------------
+
+
+
+-> In java applications we can develop persistence layer in below ways
+
+		1) JDBC
+		2) Spring JDBC
+		3) Hibernate
+		4) Spring ORM
+		5) Spring Data JPA
+
+
+
+
+
+
+
+
+
+
+
+
+Developing First Application Using Data JPA
+------------------------------------------------------------------------
+1) Create Spring Starter Project with below dependencies
+
+		1) spring-boot-starter
+		2) spring-boot-starter-data-jpa
+		3) Mysql driver
+
+2) Create Entity Class (Mapping with DB table)
+
+3) Create Repository Interface and extend properties from JPA Repository
+
+4) Configure Data Source & ORM Properties in application.properties file
+
+5) Call Repository methods and test the application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Spring Data JPA Internals
+-------------------------------------------------------------------------
+-> Spring Data JPA came into market to simplify CRUD operations in the application.
+
+-> Before Data JPA, we used to write lot of boiler plate code to perform Crud Operations.
+
+-> Data JPA Provided Repository interfaces to perform CRUD operations.
+
+		1) CrudRepository
+		2) JpaRepository
+
+-> If our interface extend properties from any one of above repository then our interface will get methods to perform Crud operations.
+
+
+public interface UserRepository extends CrudRepository<T, ID>{
+
+}
+
+-> First Argument Represents Entity Class
+-> Second Argument Represents DataType of Primary Key
+
+Note: @Repository is optional.
+
+
+
+
+
+
+
+
+
+
+
+CrudRepository interface methods
+-----------------------------------------------------------------------
+-> CrudRepository is a predefined interface available in Spring Data JPA.
+
+-> CrudRepository interface providing methods to perform Crud Operations in our application
+
+1) save(Object T)
+2) saveAll(Iterable<Object> entities)
+
+3) findById(Serializable ID)
+4) findAllById(Iterable<Serializable> ids)
+5) findAll( )
+
+6) count()
+7) isExistsById(Serializable id)
+
+8) deleteById(Serializable id)
+9) deleteAllById(Iterable<Serializable> ids)
+10) delete(Object T)
+11) deleteAll(Object Entities)
+12) deleteAll ( )
+------------------------------------------------------------------------------------------------------
+
+
+
+save(Object E) -> Insert / Update The Record.
+
+saveAll (Iterable<E> entities ) -> Insert/Update Collection of records
+
+Note: With given primary if record already present in the table then it will 
+execute update query else it will execute insert query
+
+findById(Serilizable ID) : To retrieve record using Primary key
+
+findAllById(Iterable<Serializable> ids) : To records using multiple Primary Keys
+
+findAll ( ) : To retrieve all records from the table
+
+existsById(Serilizable Id) : To check presence of record using Primary Key
+
+count ( ) : To get total records count of the table.
+
+deleteById(Serializable id) : To delete a record using primary key
+
+deleteAllById(Iterable ids) : To delete multiple records using primary keys
+
+delete(Object entity): To delete a record based on entity object
+
+deleteAll ( ) : To delete all records from the table
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------
+Working with findByXXX methods in Spring Data JPA
+-------------------------------------------------------------------------
+-> If we want to retrieve records using Non Primary Key columns then we can go for findBy methods.
+
+-> When we write findBy methods, based on method name Data JPA will construct the query
+
+Note: Method Name will play important role in this process.
+----------------------------------------------------------------------------------
+public interface UserRepository extends CrudRepository<UserEntity, Serializable> {
+
+	public UserEntity findByEmail(String email);
+
+	public UserEntity findByUname(String name);
+
+	public List<UserEntity> findByAge(Integer age);
+
+	public UserEntity findByEmailAndUname(String email, String name);
+
+	public UserEntity findByAgeGreaterThan(Integer age);
+
+}
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+JpaRepository
+---------------------------------------------------------------------------------
+-> JpaRepository is a predefined interface available in Spring Data JPA
+
+-> By using JpaRepository also we can perform Crud Operations
+
+-> JpaRepository is superior than CrudRepository
+
+-> JpaRepository supporting below 3 additional functionalities
+
+		1) Pagination
+		2) Sorting
+		3) Query By Example
+
+
+
+JpaRepository & Methods available in JpaRepository
+------------------------------------------------------------------------
+
+-> Using JpaRepository we can perform below operations
+
+		1) Crud Operations
+		2) Sorting
+		3) Pagination
+		4) Query By Example
+
+-> Sorting technique we will use to sort the data while retriving
+
+		findAll(Sort.by("uname").ascending());
+
+
+-> Query By Example is used to construct the query dynamically based on values available in Entity class obj.
+
+		UserEntity entity = new UserEntity();
+		entity.setUname("Santosh");
+		entity.setAge(29);
+
+		Example of = Example.of(entity);
+
+		findAll(of);
+
+-----------------------------------------------------------------------
+Pagination
+-----------------------------------------------------------------------
+-> Pagination is the process of dividing total records into multiple pages.
+
+	PageRequest pageReq = PageRequest.of(pageNo, pageSize);
+	findAll(pageReq);
+
+
+
+
+
+
+
+
+
+
+
+
+
+Working with Custom Queries in Data JPA
+----------------------------------------------------------------------------------
+-> In this approach we will write the query and we will execute it.
+
+-> Custom Queries we can execute in 2 ways
+
+		1) Native SQL Queries
+		2) HQL Queries
+----------------------------------------------------------------------------------
+-> Native SQL queries are database dependent queries
+
+-> Native SQL queries contains table name and column names
+
+-> If we change our application communication from one database to another database then 
+few native sql queries may not support then we have to change them in our application.
+
+-> If we want to change from one DB to another DB entire application re-testing is required.
+
+----------------------------------------------------------------------------------
+-> To avoid the problems of Native SQL queries, we will use HQL queries 
+
+-> HQL stands for Hibernate Query Language
+
+-> HQL queries are database independent queries
+
+-> In HQL queries we will use Entity class name and entity class variable names.
+
+-> HQL queries can't be executed in database directley. HQL queries will be converted into SQL queries before exeuction.
+
+-> HQL queries will be converted into SQL queries by Dialect classes.
+----------------------------------------------------------------------------------
+
+
+
+
+Diffrence between SQL and HQL Queries:
+=======================================
+-> Native SQL queries are database dependent queries
+
+-> HQL queries are database independent queries.
+
+-> HQL queries will be converted to SQL queries before execution.
+
+-> Dialect class will convert HQL query to SQL query
+
+-> To execute custom queries we will use @Query annotation
+
+--------------------------------------------------------------------------------
+-> From maintenence standpoint HQL queries are recommended
+
+-> From performance standpoint SQL queries are recommended
+
+SQL : select * from user_details;
+HQL : from UserEntity;
+
+SQL : select * from user_details where user_id=101;
+HQL : from UserEntity where userId=101;
+
+SQL : select * from user_details where user_id=101 and user_name='Santosh';
+HQL : from UserEntity where userId=101 and username ='Santosh';
+
+SQL : select user_id, user_name where user_age =30;
+HQL : select userId, username where userAge=30;
+
+---------------------------------------------------------------------------------
+
+public interface UserRepository extends CrudRepository<UserEntity, Serializable> {
+     
+        //Hql Query
+	@Query("from UserEntity where email=:email")
+	public UserEntity findUserByEmail(String email);
+       //Hql Query
+	@Query("select userId, uname from UserEntity where age=:age")
+	public Object[] findUserByAge(Integer age);
+	//Sql Query
+	@Query(value="select * from user_details where user_id=:userId", nativeQuery=true)
+	public UserEntity findUserById(Integer userId);
+
+}
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+-> In Order to execute custom queries for insert, update and delete we will use below annotations in data jpa
+
+		@Modifying
+		@Transactional
+		@Query
+
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+Connection Pooling
+-------------------------------------------------------------------------
+
+-> If our application wants to communicate with database then we should have connection with database.
+
+	Connection con = DriverManager.getConnection(url,uname,pwd);
+
+-> If we get connection from database using above line then that connection will be called as
+ Physical Connection.
+
+-> If we open physical connection with database then we are responsible to close that connection.
+
+		con.close( );
+
+-> If we don't close that connection other resources can't access that connection.
+
+-> If connections are completed in DB then we will get Connections Exhausted Problem.
+
+
+Note: Every db will have limited no.of connections.
+----------------------------------------------------------------------------------
+
+-> To avoid DB connections problems we will use Connection Pooling.
+
+-> Connection Pooling is the process of keeping connections ready which are required for our application.
+
+-> Connection pooling is the process of creating and storing connections in a pool once application got started.
+
+-> Connection Pool will be managed by Pool Manager
+
+-> When the application got started then Connection Pool will be created and it will keep connections ready
+
+-> The programs which requires DB connection will get that connection from Connection Pool instead
+ of getting connection from Database.
+---------------------------------------------------------------------------------
+-> Hikari Connection Pool is the default connection pool using in Spring data jpa applications
+-Bydefault it will provide 10 connections.
+----------------------------------------------------------------------------------
+-> In some applications we will use Server Managed Connection Pools
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Generators
+-------------------------------------------------------------------------
+
+-> Generators are used to generate the value for primary key.
+
+-> It is not at all recommended to ask end user to enter the value for primary key because they may 
+enter duplicate value.
+
+-> Primary key is a constraint which is combination of below 2 constraints
+
+		1) NOT NULL
+		2) UNIQUE
+
+-> When we use generators application is responsible to generate the value for primary key column
+---------------------------------------------------------------------------------
+-> To generate value for primary key we used @GeneratedValue annotation
+
+-> If our underlying database is ORACLE then this annotation will use HIBERNATE_SEQUENCE
+ to generate value for primary key.
+
+-> HIBERNTATE_SEQUENCE value will start from 1 and will be incremented by 1.
+
+-> If our underlying database in MYSQL then this annotation will use AUTO_INCREMENT
+ to generate value for primary key.
+
+NOTE: SEQUENCES are DB dependent. Oracle will support where as MYSQL will not support.
+-----------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------------------------------------
+@Entity
+@Table(name = "STUDENTS_TBL")
+public class Student {
+
+	@Id
+	@Column(name = "STUDENT_ID")
+	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer studentId;
+
+	@Column(name = "STUDENT_NAME")
+	private String studentName;
+
+	@Column(name = "STUDENT_EMAIL")
+	private String studentEmail;
+
+	@Column(name = "STUDENT_RANKS")
+	private Integer studentRank;
+
+}
+
+
+
+
+
+
+
+-> Timestamping is the process of generating values for CREATED_DATE AND UPDATED_DATE columns.
+
+		@CreationTimestamp
+
+		@UpdateTimestamp
+
+-> CREATED_DATE & UPDATED_DATE columns will help us in analyzing the table data.
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+Composite Primary Key:
+
+
+-> Primary Key is a constraint which is combination of below 2 constraints
+
+			1) UNIQUE
+			2) NOT NULL
+
+-> Primary key constraint will make sure our table contains unique data
+
+-> Primary Key is mandatory for the table to use ORM frameworks.
+
+-> To map Entity class variable to primary key column we will use @Id annotation
+
+-> To generate the value for Primary Key column we will use Generators.
+---------------------------------------------------------------------------------------------
+
+-> We can have more than one column as primary key in database table.
+
+-> If we have more than one column as primary key then we will call it as Composite Primary key.
+
+-> We can't use generators for composite primary key
+----------------------------------------------------------------------------------------------
+
+@Data
+@Entity
+@Table(name = "BANK_ACCOUNTS")
+@IdClass(AccountPK.class)
+public class Account {
+
+	@Column(name = "BRANCH_NAME")
+	private String branchName;
+
+	@Column(name = "MIN_BAL")
+	private Double minBal;
+
+	@Id
+	private Integer accId;
+
+	@Id
+	private String accType;
+
+	@Id
+	private String holderName;
+}
+--------------------------------------------------------------------------------
+@Data
+public class AccountPK implements Serializable {
+
+	private Integer accId;
+	private String accType;
+	private String holderName;
+
+}
+--------------------------------------------------------------------------------
+public interface AccountRepository extends JpaRepository<Account, AccountPK> {
+
+}
+--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How to rollback transaction
+--------------------------------------------------------------------------------
+
+-> The unit amount of work we are doing is called as one transaction.
+If any operation is failed we are going to rollback all other operations also in the transaction. 
+It means Either or all or None.
+
+		@Transactional(rollbackFor=Exception.class)
+
+--------------------------------------------------------------------------------
+
+Example:
+
+package com.bikkadIt.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Employee {
+
+	@Id
+	private int empId;
+	
+	private String empName;
+	
+	private Double empSal;
+
+	public int getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+
+	public String getEmpName() {
+		return empName;
+	}
+
+	public void setEmpName(String empName) {
+		this.empName = empName;
+	}
+
+	public Double getEmpSal() {
+		return empSal;
+	}
+
+	public void setEmpSal(Double empSal) {
+		this.empSal = empSal;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [empId=" + empId + ", empName=" + empName + ", empSal=" + empSal + "]";
+	}
+	
+	
+}
+
+
+
+package com.bikkadIt.model;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Address {
+
+	@Id
+	private int addrId;
+	
+	private String city;
+	
+	private String state;
+	
+	private String country;
+	
+	private int empId;
+
+	public int getAddrId() {
+		return addrId;
+	}
+
+	public void setAddrId(int addrId) {
+		this.addrId = addrId;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public int getEmpId() {
+		return empId;
+	}
+
+	public void setEmpId(int empId) {
+		this.empId = empId;
+	}
+
+	@Override
+	public String toString() {
+		return "Address [addrId=" + addrId + ", city=" + city + ", state=" + state + ", country=" + country + ", empId="
+				+ empId + "]";
+	}
+	
+	
+}
+
+
+
+package com.bikkadIt.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.bikkadIt.model.Address;
+@Repository
+public interface AddressRepository extends JpaRepository<Address, Serializable>{
+
+}
+
+
+
+package com.bikkadIt.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.bikkadIt.model.Employee;
+
+@Repository
+public interface EmployeeRepository extends JpaRepository<Employee, Serializable>{
+
+}
+
+
+package com.bikkadIt.sercice;
+
+public interface UserServiceI {
+
+	public void saveData() ;
+}
+
+
+
+package com.bikkadIt.sercice;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.bikkadIt.model.Address;
+import com.bikkadIt.model.Employee;
+import com.bikkadIt.repository.AddressRepository;
+import com.bikkadIt.repository.EmployeeRepository;
+
+@Service
+public class UserServiceImpl implements UserServiceI{
+
+	private EmployeeRepository employeeRepository;
+	
+	private AddressRepository addressRepository;
+	
+	
+	
+	@Autowired
+	public UserServiceImpl(EmployeeRepository employeeRepository, AddressRepository addressRepository) {
+		super();
+		this.employeeRepository = employeeRepository;
+		this.addressRepository = addressRepository;
+	}
+
+
+
+
+	@Transactional(rollbackFor = Exception.class)
+	public void saveData() {
+		
+		Employee emp =new Employee();
+		emp.setEmpId(103);
+        emp.setEmpName("Santosh");	
+        emp.setEmpSal(10000.00);
+        employeeRepository.save(emp);
+        
+        int a=10/0;
+        
+        Address addr=new Address();
+        addr.setAddrId(503);
+        addr.setCity("pune");
+        addr.setState("Maharashtra");
+        addr.setCountry("India");
+        addr.setEmpId(103);
+        addressRepository.save(addr);
+	}
+
+}
+
+
+package com.bikkadIt;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import com.bikkadIt.sercice.UserServiceI;
+
+@SpringBootApplication
+public class HowToRollbackTransApplication {
+
+	public static void main(String[] args) {
+	ConfigurableApplicationContext context=	SpringApplication.run(HowToRollbackTransApplication.class, args);
+
+      UserServiceI userServiceI= 	context.getBean(UserServiceI.class);
+      
+         userServiceI.saveData();
+	     
+         context.close();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

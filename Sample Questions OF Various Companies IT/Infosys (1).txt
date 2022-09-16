@@ -1,0 +1,16 @@
+
+================================================ INFOSYS =========================================================
+
+1) Explain your project
+
+2) What is web service? why we required web service or benifits of using web service
+
+3) Do write the ex. of Stored Procedure and Consumer
+
+4) What is singleton pattern?
+
+5) Write a program for String palindrome
+
+6) What are the annotation in web service
+
+7) What is hibernate?.

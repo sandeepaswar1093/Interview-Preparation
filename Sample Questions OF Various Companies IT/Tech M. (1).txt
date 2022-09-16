@@ -1,0 +1,45 @@
+=============================================================== Tech M. ==========================================================================
+
+1) Explain about project?
+
+2) How to store data to the database in project
+
+3) How to run spring boot application
+
+4) By using which method in spring boot we can send request we can send request to the frontend?
+
+5) How to inject dependency injection?
+
+6) what is the use of @autowire annotation
+
+7) How to store the data into the database
+
+8) Which are the annotation that are being used in spring boot
+
+9) Differentiate between ArrayList and LinkedList
+
+10)Differentiate between Hashmap and Hashset
+
+11)Differentiate between Hashmap and vector
+
+12)Which is the version of eclips you have used
+
+13)What is inheritance? Explain
+
+14)What is class and object
+
+15)What is hashtable
+
+16)Differentiate between Hashmap and Hashtable
+
+17)What are the difference in between throw and throws
+
+18)What are the different annotations of spring boot
+
+19)What is thread? How we can implement thread
+
+20)Differentiate between overloading and overriding
+
+21)Differentiate between abstract method and interface
+
+22)What is IOC? Explain.

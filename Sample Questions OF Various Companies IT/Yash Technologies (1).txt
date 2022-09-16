@@ -1,0 +1,31 @@
+================================================ Yash Technologies =========================================================
+
+1) What is oops? Explain it with real time example
+
+2) What is Runtime Polymorphism
+
+3) What are different scenario of overriding
+
+4) Can we override static method or not?
+
+5) What are the possible differences in between abstraction and interface?
+
+6) What are the different type of exception
+
+7) What is user defined exception? and do write a code of user defined exception
+
+8) Explain different senario of try, catch and finally and what are certain differences in flow using return type
+
+9) What are the different java 8 features
+
+10)Do write hierarchy of collection
+
+11)What are the differences in between ArrayList and LinkedList?
+
+12)Differentiate in between map and collection
+
+13)What are the differences in between ArrayList and set?
+
+14)Differences in between comparable and comparator
+
+15)What is the internal structure of hashmap and different scenario on hashmap

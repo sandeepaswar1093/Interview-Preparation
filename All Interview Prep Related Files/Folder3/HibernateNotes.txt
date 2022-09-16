@@ -1,0 +1,247 @@
+Sources :
+
+https://www.interviewbit.com/hibernate-interview-questions/
+
+https://www.javatpoint.com/hibernate-interview-questions
+
+Assignments:(Prepare by your own)
+
+1) it converts all checked exceptions into unchecked exceptions.
+2)it provides criteria builder API.
+3)it suppotrs validation features.
+4)it provides cache mechanism.
+  1)first level cache 
+  2)second level cache.
+
+
+-it provides inheritance relationship .
+1)default inheritance
+2)single table
+3)joint for table per class.
+
+- What is automatic dirty checking in hibernate?
+
+- How to connect two DataBases in one application.
+
+
+
+
+
+
+
+
+Hibernate:
+
+Hibernate is java framework that simplifies the development of java appliacation to interact with database.
+
+Hibernate is ORM(Object relational mapping) tool.
+
+It reduces the developer efforts ,time ,cost.
+
+hibernate is an opensource,lightweight framework.
+
+It is invented by gavin king in 2001.
+
+Any type of appliacation can build with Hibernate framework.
+ex.standalone application,web application,Distributed application.
+
+Advantage of Hibernate over Jdbc :
+1)Hibernate generate sql query at run time according database.
+2)it provides automatic table creation feature.
+3)It provides primary key auto generation feature.
+4)it converts all checked exceptions into unchecked exceptions.
+5)Hibernate provides their own query language i.e HQL(Hibernate query language).
+6)it provides criteria builder API.
+7)it suppotrs validation features.
+8)it provides cache mechanism.
+  1)first level cache 
+  2)second level cache.
+-It provide relationship mapping
+1)one to one mapping
+2)one to many mapping.
+3)many to one mapping.
+4)many to many mapping.
+
+-it provides inheritance relationship .
+1)default inheritance
+2)single table
+3)joint for table per class.
+
+
+
+
+
+1) List some of the databases supported by Hibernate?
+
+1)MySQL
+2)Oracle
+3)HSQL
+4)PostgreSQL
+
+ 
+
+
+2)What is SessionFactory ?
+SessionFactory provides the instance of Session.It holds the data of second level cache that is not enabled by default. 
+The org.hibernate.SessionFactory interface provides factory method to get the object of Session.
+
+
+3) Is SessionFactory a thread-safe object?
+Yes, SessionFactory is a thread-safe object, many threads cannot access it simultaneously.
+
+
+ 4)What is Session?
+ It holds a first-level cache of data. The org.hibernate.Session interface provides methods to insert, update and delete the object.
+
+
+5)Is Session a thread-safe object?
+No, Session is not a thread-safe object, many threads can access it simultaneously. In other words, you can share it between threads.
+
+
+6) What is save method?
+Hibernate provides the save method on the session interface to save a record into the database.
+ So the session.save inserts a record into the database. 
+ It returns the id, that is the primary key that will be assigned to the database record.
+
+7) What is saveOrUpdate method?
+In addition to the save method, Hibernate also provides a method called saveOrUpdate on the session
+ interface. Just as the name suggests, this method either performs a save operation or an update 
+operation. If there is no record in the database corresponding to the object passed in,
+ it inserts a record, but if there is a record corresponding to the object passed in, 
+it just updates the existing record. 
+
+7.2) What is persist Method()?
+
+persist method is used   INSERT records into the database, 
+but return type of persist is void.
+
+
+8)  What is the difference between get and load method?
+
+  
+No.	get()	                                       load()
+
+1)	Returns null if an object is not found.    	1) Throws ObjectNotFoundException if an object                                                             is not found.
+2)	get() method always hit the database.     	2)load() method doesn't hit the database                                                                  always .
+3)	It returns the real object, not the proxy.	3) It returns proxy object.
+4)	It should be used if you are not sure           4)It should be used if you are sure that   
+        about the existence of instance.	          instance exists.
+
+
+
+
+
+9) What is the difference between update and merge method?
+The differences between update() and merge() methods are given below.
+
+No.	The update() method	                 merge() method
+1)	Update means to update something.	       1)  Merge means to combine something.
+2)	update() should be used if the             2)  merge() should be used if
+     session doesn't contain an already                you don't know the 
+     persistent state with the same id.                state of the session,
+   It means an update should be used                 means you want to make
+  inside the session only.                           the modification at any time.
+  After closing the session,
+  it will throw the error.	
+                                                  
+                                                   
+                                                   
+10) What are the states of the object in hibernate?(Life cycle of Object in Hibernate)
+There are 3 states of the object (instance) in hibernate.
+
+Transient: The object is in a transient state if it is just created and not associated with a session.
+
+Persistent: The object is in a persistent state if a session is open, and you just saved the 
+instance in the database or retrieved the instance from the database.
+
+Detached: The object is in a detached state if a session is closed.
+ After detached state, the object comes to persistent state if you call lock() or update() method.                                               
+ 
+
+
+11)How to make an immutable class in hibernate?
+Immutable class in hibernate creation could be in the following way. 
+
+If we are using the XML form of configuration, then a class can be made immutable by marking mutable=false.
+ The default value is true there which indicating that the class was not created by default.
+
+In the case of using annotations, immutable classes in hibernate can also be created by
+ using @Immutable annotation.
+
+
+
+
+12) What is automatic dirty checking in hibernate?
+
+The automatic dirty checking feature of Hibernate, calls update statement automatically on the objects
+ that are modified in a transaction.
+
+
+
+13)How many types of association mapping are possible in hibernate?
+There can be 4 types of association mapping in hibernate.
+One to One
+One to Many
+Many to One
+Many to Many
+ 
+
+15) What is lazy loading in hibernate?
+Lazy loading in hibernate improves the performance. It loads the child objects on demand.
+
+Since Hibernate 3, lazy loading is enabled by default, and you don't need to do lazy="true". It means not to load the child objects when the parent is loaded.
+
+16) What is Eager loading in hibernate?
+Eager loading in hibernate it will decrease the performance. It loads the child objects automatically when application started.
+
+It means it will  load the child objects when the parent is loaded.
+
+
+16)What is HQL (Hibernate Query Language)?
+Hibernate Query Language is known as an object-oriented query language.
+ It is like a structured query language (SQL).
+
+The main advantage of HQL over SQL is:
+
+Database independent.
+Simple to write a query.
+
+
+17)What is the difference between first level cache and second level cache?
+
+No.	First Level Cache	                        Second Level Cache
+
+1)	First Level Cache is associated with Session.  1)  Second Level Cache is associated with SessionFactory.
+	
+2)	It is enabled by default.	               2) It is not enabled by default.We have to enable it.
+                                                       For Enabling we have to add EH Cache jar.
+
+
+3)  The first level cache is available  only until the session is open,                3) The second-level cache is available through the  
+    the first level cache is destroyed.  once the session is closed,                     application’s life cycle, It is only destroyed when application is stopped.
+              
+
+18)What can you tell about Hibernate Configuration File?
+Hibernate Configuration File or hibernate.cfg.xml is one of the most required configuration files in Hibernate. 
+By default, this file is placed under the src/main/resource folder.
+The file contains database related configurations and session-related configurations.
+Hibernate facilitates providing the configuration either in an XML file (like hibernate.cfg.xml) or a properties file (like hibernate.properties).
+
+This file is used to define the below information:
+
+Database connection details: Driver class, URL, username, and password.
+
+hibernate.cfg.xml
+
+
+
+There must be one configuration file for each database used in the application,
+ suppose if we want to connect with 2 databases, then we must create 2 configuration files with different names.
+
+
+Hibernate properties: Dialect, show_sql, second_level_cache, and mapping file names.
+
+Hibernate.properties
+
+
+
